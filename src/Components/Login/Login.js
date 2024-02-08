@@ -4,6 +4,8 @@ import axios from "axios";
 
 import { API_URL } from "../../Assets/API_URL";
 
+import styles from "./Login.module.css";
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -34,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={loginHandler}>
+    <form onSubmit={loginHandler} className={styles.formContainer}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
@@ -42,6 +44,8 @@ const Login = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="enter email"
+          required
         />
       </div>
       <div>
@@ -51,6 +55,8 @@ const Login = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="enter password"
+          required
         />
       </div>
       <button type="submit">Login</button>

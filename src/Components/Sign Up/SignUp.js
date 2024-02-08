@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { API_URL } from "../../Assets/API_URL";
+import styles from "./SignUp.module.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("zahid@gmail.com");
@@ -32,7 +33,7 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={signUpHandler}>
+    <form onSubmit={signUpHandler} className={styles.formContainer}>
       <div>
         <label htmlFor="username">Username:</label>
         <input
@@ -40,6 +41,7 @@ const SignUp = () => {
           id="username"
           value={userName}
           onChange={(e) => setuserName(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -49,6 +51,7 @@ const SignUp = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
       <div>
